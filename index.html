@@ -17,24 +17,9 @@
             line-height: 1.6;
             color: #08051C;
             background: #FFE27C;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #261A91 0%, #170F57 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-        
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.95;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,.03) 2px, rgba(255,255,255,.03) 4px),
+                repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(0,0,0,.02) 2px, rgba(0,0,0,.02) 4px);
         }
         
         .container {
@@ -188,21 +173,7 @@
             margin-bottom: 0.3rem;
         }
         
-        .incomplete-notice {
-            background: #A3F4FF;
-            border-left: 4px solid #A3F4FF;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-            font-style: italic;
-            color: #08051C;
-        }
-        
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            
             .stats-grid {
                 grid-template-columns: 1fr;
             }
@@ -212,7 +183,7 @@
 <body>
     <div class="container">
         <div style="text-align: center; margin-bottom: 2rem;">
-            <img src="https://i.imgur.com/5KjZ9Xo.png" alt="Brand Logos" style="max-width: 100%; height: auto;">
+            <img src="https://github.com/user-attachments/assets/d4e8a5f5-3c9e-4f4a-8e5e-9f9f9f9f9f9f" alt="Intelligent Lending Brand Logos" style="max-width: 100%; height: auto;">
         </div>
         
         <div class="summary-card">
@@ -260,157 +231,6 @@
             <div style="margin: 2rem 0;">
                 <canvas id="prChart" style="max-height: 400px;"></canvas>
             </div>
-            
-            <script>
-                const ctx = document.getElementById('prChart').getContext('2d');
-                
-                const data = {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
-                    datasets: [
-                        {
-                            label: 'TotallyMoney',
-                            data: [104, 154, 575, 71, 34, 45, 48, 212, 230],
-                            backgroundColor: '#1e3a8a',
-                            borderColor: '#1e3a8a',
-                            borderWidth: 0
-                        },
-                        {
-                            label: 'Ocean',
-                            data: [103, 26, 344, 511, 26, 203, 121, 565, 236],
-                            backgroundColor: '#0ea5e9',
-                            borderColor: '#0ea5e9',
-                            borderWidth: 0
-                        },
-                        {
-                            label: 'CredAbility',
-                            data: [41, 26, 384, 70, 21, 33, 64, 32, 34],
-                            backgroundColor: '#7c3aed',
-                            borderColor: '#7c3aed',
-                            borderWidth: 0
-                        },
-                        {
-                            label: 'binq',
-                            data: [0, 0, 0, 0, 0, 0, 0, 14, 2],
-                            backgroundColor: '#10b981',
-                            borderColor: '#10b981',
-                            borderWidth: 0
-                        },
-                        {
-                            label: 'thinkmoney',
-                            data: [null, null, null, null, null, null, null, null, 262],
-                            backgroundColor: '#3A5B8C',
-                            borderColor: '#3A5B8C',
-                            borderWidth: 0
-                        },
-                        {
-                            label: 'Total',
-                            data: [248, 206, 1303, 652, 81, 281, 233, 823, 764],
-                            type: 'line',
-                            backgroundColor: 'transparent',
-                            borderColor: '#f97316',
-                            borderWidth: 3,
-                            pointRadius: 0,
-                            pointHoverRadius: 6,
-                            tension: 0.4,
-                            yAxisID: 'y1'
-                        }
-                    ]
-                };
-
-                const config = {
-                    type: 'bar',
-                    data: data,
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: true,
-                        interaction: {
-                            mode: 'index',
-                            intersect: false,
-                        },
-                        plugins: {
-                            title: {
-                                display: true,
-                                text: '2025 Coverage',
-                                font: {
-                                    size: 18,
-                                    weight: 'bold'
-                                },
-                                padding: {
-                                    bottom: 20
-                                }
-                            },
-                            legend: {
-                                position: 'bottom',
-                                labels: {
-                                    usePointStyle: true,
-                                    padding: 15,
-                                    font: {
-                                        size: 12
-                                    }
-                                }
-                            },
-                            tooltip: {
-                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                                padding: 12,
-                                titleFont: {
-                                    size: 13
-                                },
-                                bodyFont: {
-                                    size: 12
-                                }
-                            }
-                        },
-                        scales: {
-                            x: {
-                                grid: {
-                                    display: false
-                                },
-                                ticks: {
-                                    font: {
-                                        size: 11
-                                    }
-                                }
-                            },
-                            y: {
-                                type: 'linear',
-                                display: true,
-                                position: 'left',
-                                beginAtZero: true,
-                                max: 700,
-                                ticks: {
-                                    stepSize: 100,
-                                    font: {
-                                        size: 11
-                                    }
-                                },
-                                grid: {
-                                    color: '#e5e5e5'
-                                }
-                            },
-                            y1: {
-                                type: 'linear',
-                                display: true,
-                                position: 'right',
-                                beginAtZero: true,
-                                max: 1400,
-                                ticks: {
-                                    stepSize: 200,
-                                    font: {
-                                        size: 11
-                                    }
-                                },
-                                grid: {
-                                    drawOnChartArea: false
-                                }
-                            }
-                        },
-                        barPercentage: 0.9,
-                        categoryPercentage: 0.8
-                    }
-                };
-
-                new Chart(ctx, config);
-            </script>
         </div>
 
         <div class="brand-section">
@@ -732,14 +552,162 @@
         <div class="summary-card" style="text-align: center; margin-top: 3rem;">
             <p style="color: #3A384B; margin-bottom: 1rem;">Questions or feedback? Please get in touch with the PR team.</p>
             <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
-                <a href="mailto:jmccaffrey@totallymoney.com" style="color: #261A91; text-decoration: none; font-weight: 600;">James McCaffrey - jmccaffrey@totallymoney.com</a>
                 <a href="mailto:alicia.boukersi@ocean.co.uk" style="color: #261A91; text-decoration: none; font-weight: 600;">Alicia Boukersi - alicia.boukersi@ocean.co.uk</a>
+                <a href="mailto:vix.leyton@thinkmoney.co.uk" style="color: #261A91; text-decoration: none; font-weight: 600;">Vix Leyton - vix.leyton@thinkmoney.co.uk</a>
+                <a href="mailto:jmccaffrey@totallymoney.com" style="color: #261A91; text-decoration: none; font-weight: 600;">James McCaffrey - jmccaffrey@totallymoney.com</a>
             </div>
         </div>
-        
-        <div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Brand Logos" style="max-width: 100%; height: auto;">
-        </div>
     </div>
+    
+    <script>
+        const ctx = document.getElementById('prChart').getContext('2d');
+        
+        const data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
+            datasets: [
+                {
+                    label: 'TotallyMoney',
+                    data: [104, 154, 575, 71, 34, 45, 48, 212, 230],
+                    backgroundColor: '#1e3a8a',
+                    borderColor: '#1e3a8a',
+                    borderWidth: 0
+                },
+                {
+                    label: 'Ocean',
+                    data: [103, 26, 344, 511, 26, 203, 121, 565, 236],
+                    backgroundColor: '#0ea5e9',
+                    borderColor: '#0ea5e9',
+                    borderWidth: 0
+                },
+                {
+                    label: 'CredAbility',
+                    data: [41, 26, 384, 70, 21, 33, 64, 32, 34],
+                    backgroundColor: '#7c3aed',
+                    borderColor: '#7c3aed',
+                    borderWidth: 0
+                },
+                {
+                    label: 'binq',
+                    data: [0, 0, 0, 0, 0, 0, 0, 14, 2],
+                    backgroundColor: '#10b981',
+                    borderColor: '#10b981',
+                    borderWidth: 0
+                },
+                {
+                    label: 'thinkmoney',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 262],
+                    backgroundColor: '#3A5B8C',
+                    borderColor: '#3A5B8C',
+                    borderWidth: 0
+                },
+                {
+                    label: 'Total',
+                    data: [248, 206, 1303, 652, 81, 281, 233, 823, 764],
+                    type: 'line',
+                    backgroundColor: 'transparent',
+                    borderColor: '#f97316',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    pointHoverRadius: 6,
+                    tension: 0.4,
+                    yAxisID: 'y1'
+                }
+            ]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '2025 Coverage',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: {
+                            bottom: 20
+                        }
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 15,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        titleFont: {
+                            size: 13
+                        },
+                        bodyFont: {
+                            size: 12
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 11
+                            }
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        beginAtZero: true,
+                        max: 700,
+                        ticks: {
+                            stepSize: 100,
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: '#e5e5e5'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        beginAtZero: true,
+                        max: 1400,
+                        ticks: {
+                            stepSize: 200,
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    }
+                },
+                barPercentage: 0.9,
+                categoryPercentage: 0.8
+            }
+        };
+
+        new Chart(ctx, config);
+    </script>
 </body>
 </html>
