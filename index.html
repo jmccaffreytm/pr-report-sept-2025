@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PR Report - September 2025 | Intelligent Lending</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -71,18 +72,34 @@
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .stat-box:hover {
+            transform: scale(1.05);
+        }
+        
+        .stat-box:hover .stat-number {
+            font-size: 3rem;
+        }
+        
+        .stat-box:hover .stat-label {
+            font-size: 1rem;
         }
         
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
             display: block;
+            transition: font-size 0.3s ease;
         }
         
         .stat-label {
             font-size: 0.9rem;
             opacity: 0.9;
             margin-top: 0.5rem;
+            transition: font-size 0.3s ease;
         }
         
         .brand-section {
@@ -245,14 +262,142 @@
                 </div>
             </div>
             
-            <p style="margin-top: 1.5rem;">A shorter month than usual with the Corfu trip (which was great), but solid performance, nonetheless.</p>
-            
-            <p style="margin-top: 1rem;">We continued to work on the TotallyMoney landing page overhaul and SEO project, the Ocean positioning, and working with teams across the group to align our messaging and launch Ocean Life Insurance.</p>
-            
-            <div style="margin: 2rem 0; text-align: center;">
-                <img src="image5-pr-mentions-chart.png" alt="PR Mentions Chart - September 2025" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                <p style="font-size: 0.9rem; color: #3A384B; margin-top: 0.5rem; font-style: italic;">Monthly PR mentions across all brands</p>
+            <div style="margin: 2rem 0;">
+                <canvas id="prChart" style="max-height: 400px;"></canvas>
             </div>
+            
+            <script>
+                const ctx = document.getElementById('prChart').getContext('2d');
+                
+                const data = {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
+                    datasets: [
+                        {
+                            label: 'TotallyMoney',
+                            data: [104, 154, 575, 71, 34, 45, 48, 212, 230],
+                            backgroundColor: '#1e3a8a',
+                            borderColor: '#1e3a8a',
+                            borderWidth: 0
+                        },
+                        {
+                            label: 'Ocean',
+                            data: [103, 26, 344, 511, 26, 203, 121, 565, 236],
+                            backgroundColor: '#0ea5e9',
+                            borderColor: '#0ea5e9',
+                            borderWidth: 0
+                        },
+                        {
+                            label: 'CredAbility',
+                            data: [41, 26, 384, 70, 21, 33, 64, 32, 34],
+                            backgroundColor: '#7c3aed',
+                            borderColor: '#7c3aed',
+                            borderWidth: 0
+                        },
+                        {
+                            label: 'binq',
+                            data: [0, 0, 0, 0, 0, 0, 0, 14, 2],
+                            backgroundColor: '#10b981',
+                            borderColor: '#10b981',
+                            borderWidth: 0
+                        },
+                        {
+                            label: 'Total',
+                            data: [248, 206, 1303, 652, 81, 281, 233, 823, 502],
+                            type: 'line',
+                            backgroundColor: 'transparent',
+                            borderColor: '#f97316',
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            pointHoverRadius: 6,
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                };
+
+                const config = {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 15,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                padding: 12,
+                                titleFont: {
+                                    size: 13
+                                },
+                                bodyFont: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            },
+                            y: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                beginAtZero: true,
+                                max: 700,
+                                ticks: {
+                                    stepSize: 100,
+                                    font: {
+                                        size: 11
+                                    }
+                                },
+                                grid: {
+                                    color: '#e5e5e5'
+                                }
+                            },
+                            y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                beginAtZero: true,
+                                max: 1400,
+                                ticks: {
+                                    stepSize: 200,
+                                    font: {
+                                        size: 11
+                                    }
+                                },
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            }
+                        },
+                        barPercentage: 0.9,
+                        categoryPercentage: 0.8
+                    }
+                };
+
+                new Chart(ctx, config);
+            </script>
         </div>
 
         <!-- binq Section -->
