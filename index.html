@@ -92,6 +92,19 @@
             margin-top: 0.5rem;
         }
         
+        .brand-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+        
+        .brand-row .stat-box {
+            flex: 1;
+            min-width: 150px;
+        }
+        
         .brand-section {
             background: white;
             border-radius: 12px;
@@ -139,14 +152,14 @@
         
         .content-block li {
             padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding-left: 2rem;
             position: relative;
         }
         
         .content-block li:before {
             content: "→";
             position: absolute;
-            left: 0;
+            left: 0.5rem;
             color: #261A91;
             font-weight: 700;
         }
@@ -221,7 +234,7 @@
                 </div>
             </div>
             
-            <div class="stats-grid" style="margin-top: 1rem;">
+            <div class="brand-row">
                 <div class="stat-box" style="background: linear-gradient(135deg, #170F57 0%, #261A91 100%);">
                     <span class="stat-number">34</span>
                     <span class="stat-label">CredAbility</span>
@@ -315,6 +328,17 @@
                             intersect: false,
                         },
                         plugins: {
+                            title: {
+                                display: true,
+                                text: '2025 Coverage',
+                                font: {
+                                    size: 18,
+                                    weight: 'bold'
+                                },
+                                padding: {
+                                    bottom: 20
+                                }
+                            },
                             legend: {
                                 position: 'bottom',
                                 labels: {
